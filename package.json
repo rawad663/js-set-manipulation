@@ -1,0 +1,22 @@
+{
+  "name": "js-set-manipulation",
+  "version": "1.0.0",
+  "description": "A set of useful functions that give easier control over set manipulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rawad663/js-set-manipulation.git"
+  },
+  "author": "Rawad Karam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rawad663/js-set-manipulation/issues"
+  },
+  "homepage": "https://github.com/rawad663/js-set-manipulation#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
