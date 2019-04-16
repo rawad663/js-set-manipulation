@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/rawad663/js-set-manipulation.git"
   },
-  "author": "Rawad Karam",
+  "author": "Rawad Karam <rawad.karam663@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rawad663/js-set-manipulation/issues"
