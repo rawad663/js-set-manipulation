@@ -1,4 +1,13 @@
+const validateInput = (args) => {
+    args.forEach(arg => {
+        if(!Array.isArray(arg))
+            throw new Error(`Error: invalid argument type ${typeof arg}.  Make sure it's an array`)
+    });
+}
+
 const intersection = (...args) => {
+    // Validate all inputs are arrays
+    validateInput(args);
     let [arg1, ...rest] = args;
 
     rest.forEach(arg => {
@@ -11,6 +20,7 @@ const intersection = (...args) => {
 } 
 
 const union = (...args) => {
+    validateInput(args);
     let [arg1, ...rest] = args;
 
     const merged = arg1.concat(...rest);
@@ -18,6 +28,7 @@ const union = (...args) => {
 }
 
 const difference = (set, subtractionSets) => {
+    validateInput([ set, ...subtractionSets ]);
     const [ arg1, rest ] = subtractionSets;
     const merged = arg1.concat(...rest);
 
