@@ -56,7 +56,4 @@ describe('difference', () => {
         expect(difference(subtrahend, minuend)).toEqual(expected);
     });
 
-    it('properly throws error on invalid input', () => {
-        expect(() => difference(...error_test_sets)).toThrow();
-    });
 });
