@@ -8,16 +8,19 @@ let test_sets;
 let error_test_sets;
 
 beforeAll(() => {
+    // sets for testing expected (actual) values
     test_sets = [
         [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
         [ 2, 4, 6, 8, 10, 12 ],
         [ 1, 2, 4, 8, 16, 32, 64 ]
     ];
 
+    // sets that will throw errors
     error_test_sets = [
         'a',
         1,
-        {}
+        {},
+        false
     ];
 });
 
