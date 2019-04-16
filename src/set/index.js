@@ -11,10 +11,10 @@ const intersection = (...args) => {
 } 
 
 const union = (...args) => {
-    let [arg1, arg2, ...rest] = args;
+    let [arg1, ...rest] = args;
 
-    const merged = arg2.concat(...rest);
-    return arg1.filter((el, index) => merged.includes(el) && arg1.indexOf(el) === index);
+    const merged = arg1.concat(...rest);
+    return merged.filter((el, index) => merged.indexOf(el) === index);
 }
 
 const difference = (set, subtractionSets) => {

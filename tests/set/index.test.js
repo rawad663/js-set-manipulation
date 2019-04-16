@@ -1,5 +1,6 @@
 const {
-    intersection
+    intersection,
+    union
 } = require('../../src/set');
 
 let test_sets;
@@ -15,4 +16,9 @@ beforeAll(() => {
 test('intersection:: returns the intersection of n sets', () => {
     const expected = [ 2, 4, 8 ];
     expect(intersection(...test_sets)).toEqual(expected);
+});
+
+test('union:: returns the union of n sets', () => {
+    const expected = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16, 32, 64 ];
+    expect(union(...test_sets)).toEqual(expected);
 });
