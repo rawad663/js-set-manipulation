@@ -16,4 +16,5 @@ module.exports = {
         union,
         difference
     }
+
 };
