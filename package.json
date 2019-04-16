@@ -1,6 +1,6 @@
 {
   "name": "js-set-manipulation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of useful functions that give easier control over set manipulation",
   "main": "index.js",
   "scripts": {
