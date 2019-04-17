@@ -19,3 +19,5 @@ When reporting an issue we also need as much information about your environment 
 ### Contributing Code
 If you would like to fix a bug mentioned on the issues tab, or a new feature you think could be useful, feel free to fork the project and create your solution. When it's done and properly tested, create a pull request into this repo's `master` branch.
 
+### Documentation
+Documentation is important to keep the users up to date with what's available in the package. If you would like to contribute to the documentation of the project, same process as code contributions(above) applies.
