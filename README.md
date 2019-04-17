@@ -38,4 +38,4 @@ The following functions are provided so far:
 
 
 ## Contributing to the project
-Please checkout out the contribution page to learn how to contribute to the project.
+Please check out [the contribution page](CONTRIBUTING.md) to learn how to contribute to the project.
