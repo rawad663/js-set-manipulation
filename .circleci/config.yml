@@ -50,14 +50,14 @@ workflows:
     jobs:
       - build
       - test:
-        - requires:
+        requires:
           - build
   deployment:
     jobs:
       - first-build
       - test:
-        - requires:
+        requires:
           - first-build
       - deploy:
-        - requires:
+        requires:
           - test
