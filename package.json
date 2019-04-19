@@ -1,6 +1,6 @@
 {
   "name": "js-set-manipulation",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A set of useful functions that give easier control over set manipulation",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,13 @@
   },
   "author": "Rawad Karam <rawad.karam663@gmail.com>",
   "license": "MIT",
-  "keywords": ["sets", "union", "intersection", "difference", "manipulation"],
+  "keywords": [
+    "sets",
+    "union",
+    "intersection",
+    "difference",
+    "manipulation"
+  ],
   "bugs": {
     "url": "https://github.com/rawad663/js-set-manipulation/issues"
   },
