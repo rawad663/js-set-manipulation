@@ -29,8 +29,8 @@ jobs:
       - run: npm publish
   
 # Orchestrate or schedule a set of jobs, see https://circleci.com/docs/2.0/workflows/
-workflows:
-  Welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - welcome/run
+# workflows:
+#   Welcome:
+#     # Run the welcome/run job in its own container
+#     jobs:
+#       - welcome/run
