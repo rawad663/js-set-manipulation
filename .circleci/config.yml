@@ -44,7 +44,7 @@ workflows:
     jobs:
       - first-build
       - test:
-        - requires:
+        requires:
           - first-build
   contibution:
     jobs:
