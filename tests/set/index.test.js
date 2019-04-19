@@ -60,6 +60,6 @@ describe('difference', () => {
     });
 
     it('properly throws error on invalid input', () => {
-        expect(() => difference(...error_test_sets)).toThrow();
+        expect(() => difference(...error_test_sets)).not.toThrow();
     });
 });
