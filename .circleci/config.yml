@@ -43,21 +43,13 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - first-build
-      - test-project:
-        requires:
-          - first-build
+      - test-project
   contibution:
     jobs:
       - build
-      - test-project:
-        requires:
-          - build
+      - test-project
   deployment:
     jobs:
       - first-build
-      - test-project:
-        requires:
-          - first-build
-      - deploy-project:
-        requires:
-          - test-project
+      - test-project
+      - deploy-project
