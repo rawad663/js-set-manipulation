@@ -6,55 +6,49 @@ jobs:
       - image: circleci/node:9
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - save_cache:
-          key: node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules/
-  first-build:
-    docker:
-      - image: circleci/node:9
-    steps:
-      - checkout
-      - run: npm install
-      - save_cache:
-          key: node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules/
-  test-project:
-    docker:
-      - image: circleci/node:9
-    steps:
-      - checkout
       - run: npm install
       - run: npm test
-  deploy-project:
+  deploy-minor:
     docker:
       - image: circleci/node:9
     steps:
       - checkout
       - run: npm version minor
       - run: npm publish
+  deploy-major:
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - run: npm version major
+      - run: npm publish
   
 workflows:
   version: 2
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - first-build
-      - test-project
   contibution:
     jobs:
       - build
-      - test-project
-  deployment:
+  deployment-minor:
+    triggers:
+      - schedule:
+          # Every week on Wed, Fri 
+          cron: "0 0 12 ? * WED,FRI *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
-      - first-build
-      - test-project
-      - deploy-project
-
-
-
-# 	0 0 12 ? * WED,FRI *
+      - build
+      - deploy-minor
+  deployment-major:
+    triggers:
+      - schedule:
+          # Every 2nd saturday of every month
+          cron: "0 0 12 ? 1/1 SAT#2 *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - deploy-major
