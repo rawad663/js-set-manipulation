@@ -32,7 +32,7 @@ workflows:
     triggers:
       - schedule:
           # Every week on Wed, Fri 
-          cron: "0 0 12 ? * WED,FRI *"
+          cron: "0 0 0 ? * 2/2 *"
           filters:
             branches:
               only:
