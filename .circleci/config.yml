@@ -6,10 +6,19 @@ jobs:
       - image: circleci/node:9
     steps:
       - checkout
-      # - run: npm install
       - restore_cache:
           keys:
             - node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - save_cache:
+          key: node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - js-set-manipulation/node_modules
+  first-build:
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - run: npm install
       - save_cache:
           key: node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
@@ -28,9 +37,26 @@ jobs:
       - run: npm version minor
       - run: npm publish
   
-# Orchestrate or schedule a set of jobs, see https://circleci.com/docs/2.0/workflows/
-# workflows:
-#   Welcome:
-#     # Run the welcome/run job in its own container
-#     jobs:
-#       - welcome/run
+ workflows:
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - first-build
+      - test:
+        - requires:
+          - first-build
+  contibution:
+    jobs:
+      - build
+      - test:
+        - requires:
+          - build
+  deployment:
+    jobs:
+      - first-build
+      - test:
+        - requires:
+          - first-build
+      - deploy:
+        - requires:
+          - test
