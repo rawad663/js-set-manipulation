@@ -23,13 +23,13 @@ jobs:
           key: node_modules_cache-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - js-set-manipulation/node_modules
-  test:
+  test-project:
     docker:
       - image: circleci/node:9
     steps:
       - checkout
       - run: npm test
-  deploy:
+  deploy-project:
     docker:
       - image: circleci/node:9
     steps:
@@ -43,21 +43,21 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - first-build
-      - test:
+      - test-project:
         requires:
           - first-build
   contibution:
     jobs:
       - build
-      - test:
+      - test-project:
         requires:
           - build
   deployment:
     jobs:
       - first-build
-      - test:
+      - test-project:
         requires:
           - first-build
-      - deploy:
+      - deploy-project:
         requires:
-          - test
+          - test-project
