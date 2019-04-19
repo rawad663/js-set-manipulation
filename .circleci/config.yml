@@ -37,7 +37,7 @@ jobs:
       - run: npm version minor
       - run: npm publish
   
- workflows:
+workflows:
   version: 2
   welcome:
     # Run the welcome/run job in its own container
