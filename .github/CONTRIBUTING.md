@@ -19,5 +19,17 @@ When reporting an issue we also need as much information about your environment 
 ### Contributing Code
 If you would like to fix a bug mentioned on the issues tab, or a new feature you think could be useful, feel free to fork the project and create your solution. When it's done and properly tested, create a pull request into this repo's `master` branch.
 
+### Writing Tests
+Writing tests for the project helps make the package safer from unwanted changes and a more robust
+library to use.
+
+If you wish to write a test for a function, please ensure the following:
+* The setup for that function has been properly done.
+* You've properly asserted the expected value of that function call.
+* You've tested that changing the expected value fails your test.
+* Your test handles and checks all outcomes of that function.
+
+Then simply submit a PR with that test :)
+
 ### Documentation
 Documentation is important to keep the users up to date with what's available in the package. If you would like to contribute to the documentation of the project, same process as code contributions(above) applies.
