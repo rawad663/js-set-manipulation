@@ -30,6 +30,9 @@ If you wish to write a test for a function, please ensure the following:
 * Your test handles and checks all outcomes of that function.
 
 Then simply submit a PR with that test :)
+Checkout [the testing page](.github/TESTING.md) for more info one how tests
+work in the project.
+
 
 ### Documentation
 Documentation is important to keep the users up to date with what's available in the package. If you would like to contribute to the documentation of the project, same process as code contributions(above) applies.
